@@ -42,3 +42,8 @@ link_libraries(kernel32.lib legacy_stdio_definitions.lib)
 
 add_executable(asmhello ${SRC}/LinkedList.asm ${SRC}/main.c)
 add_executable(chello ${SRC}/LinkedList.c ${SRC}/main.c)
+
+enable_testing()
+
+add_test(NAME asm COMMAND $<TARGET_FILE:asmhello>)
+add_test(NAME c COMMAND $<TARGET_FILE:chello>)
